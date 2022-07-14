@@ -1,10 +1,4 @@
-import { render } from "@testing-library/react";
-import react, {Component, useEffect, useState} from "react";
-import Prompt from "./Prompt";
-
-const username = "guest"
-const email = "evanstegall.com:";
-const prompt = "> ";
+import {Component} from "react";
 
 const start_message = 
 "'########:'##::::'##::::'###::::'##::: ##::'######::'########:'##::::'##:'########:'##::: ##:::'#####:::::'#####:::'########:\n" + 
@@ -20,7 +14,7 @@ const start_message =
                                                                                                                                         
                                                                                                                                         
 
-const commands = ["about", "email", "github", "help", "hello", "linkedin", "projects", "resume", "start", "time"];
+//const commands = ["about", "email", "github", "help", "hello", "linkedin", "projects", "resume", "start", "time"];
 
 class TerminalOutput extends Component {
     constructor(props) {

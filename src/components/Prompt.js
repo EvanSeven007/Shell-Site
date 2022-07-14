@@ -1,4 +1,4 @@
-import react, {useState} from "react";
+import {useState} from "react";
 
 const Prompt = (props) => {
     const [input, setInput] = useState("");
