@@ -1,9 +1,4 @@
-import { render } from "@testing-library/react";
-import react, {Component, useEffect, useState} from "react";
-import Terminal from "./Terminal.js";
-
-const username = "guest@evanstegall.com:$ ";
-const prompt = "> ";
+import react, {useState} from "react";
 
 const Prompt = (props) => {
     const [input, setInput] = useState("");
@@ -17,6 +12,8 @@ const Prompt = (props) => {
             case "Enter":
                 props.setCommands_(input);
                 setInput("");
+                break;
+            default:
                 break;
         }
     }
