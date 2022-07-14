@@ -37,12 +37,12 @@ class TerminalOutput extends Component {
                 return (
                 <span class = "output-box">
                     <p>First off, thank you for visiting my website, whoever you may be. Feel free to take a look around!</p>
-                    <p>Hi! My name is Evan Stegall and I am a Junior Computer Science Student at Rice University</p>
+                    <p>Hi! My name is Evan Stegall and I am a Junior Computer Science Student at Rice University.</p>
                     <p>I have been hooked on programming and problem solving ever since I took my first Python course in high school, and since then I have
                         been in love with all things computer science.</p>
                     <p>My current career goals includes learning as much as I can about tech, both as a future Software Engineer and as a software hobbyist.</p>
                     <p>In my free time, I enjoy climbing, powerlifting, reading, and listening to as much music as I can.</p>
-                    <p>Feel free to connect with any of my contacts! (the 'help' command may prove useful)</p>
+                    <p>Feel free to connect with any of my contacts! (the 'help' command may prove useful!)</p>
                 </span>)
             case "clear":
                 this.props.clearCommands();
@@ -110,7 +110,7 @@ class TerminalOutput extends Component {
             <span class = "prompt-stuff">@</span>
             <span class = "email">evanstegall.com</span>
             <span class = "prompt-stuff">$ ~ </span>
-            <span class = "output-area">{o}{this.handleCommand(o, key == this.props.commands.length - 1)}</span>
+            <span class = "output-area">{o}{this.handleCommand(o, key === this.props.commands.length - 1)}</span>
         </div>);
         return (
             <>{outputList}</>
