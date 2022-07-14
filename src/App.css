@@ -1,8 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Mono&display=swap');
+
 * {
-    font-family: 'Courier New', Courier, monospace;
+    font-family: 'Noto Sans Mono', monospace;
     background-color: #1d2021;
     color: #ebdbb2;
-    font-size: small;
+    font-size: 13px;
 }
 
 .website p {
