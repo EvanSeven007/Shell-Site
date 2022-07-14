@@ -5,6 +5,12 @@
     font-size: small;
 }
 
+.website p {
+    width: 500px;
+    word-wrap: break-word;
+    overscroll-behavior: contain;
+}
+
 .input-box {
     border: none;
     background-color: transparent;
