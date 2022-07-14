@@ -47,7 +47,7 @@ class TerminalOutput extends Component {
                 break
             case "email":
                 return (
-                    <div class = "output-box"><a href="mailto: evanstegall123@gmail.com" target = "_blank">evanstegall123@gmail.com</a></div>
+                    <div class = "output-box"><a href="mailto: evanstegall123@gmail.com" target = "_blank" rel="noreferrer">evanstegall123@gmail.com</a></div>
                 )
             case "github":
                 return (
