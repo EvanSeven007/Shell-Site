@@ -1,11 +1,25 @@
 import {useState} from "react";
 
+const commands = ["about", "email", "github", "help", "hello", "linkedin", "projects", "resume", "start", "time"];
 const Prompt = (props) => {
     const [input, setInput] = useState("");
     const [currCmdIndex, setCurrCmdIndex] = useState(0);
 
     const handleInput = (event) => {
         setInput(event.target.value);
+    }
+
+    const handleTab = () => {
+        let matches = [];
+        commands.forEach(command => {
+            if (command.startsWith(input.toLowerCase())) {
+                matches.push(command);
+            }
+        });
+        if (matches.length === 1) {
+            document.getElementsByClassName("input-box").value = matches[0];
+            setInput(matches[0]);
+        }
     }
 
     const handleKey = (event) => {
@@ -24,6 +38,9 @@ const Prompt = (props) => {
                 (currCmdIndex !== props.commands.length - 1) ? setCurrCmdIndex(currCmdIndex + 1) : setCurrCmdIndex(props.commands.length - 1);
                 document.getElementsByClassName("input-box").value = props.commands[currCmdIndex];
                 setInput(props.commands[currCmdIndex]);
+                break
+            case 'Tab':
+                handleTab()
                 break
             default:
                 break;
