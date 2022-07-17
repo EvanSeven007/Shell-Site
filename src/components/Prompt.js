@@ -40,6 +40,7 @@ const Prompt = (props) => {
                 setInput(props.commands[currCmdIndex]);
                 break
             case 'Tab':
+                event.preventDefault();
                 handleTab()
                 break
             default:
