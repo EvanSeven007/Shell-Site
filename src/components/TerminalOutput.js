@@ -36,7 +36,7 @@ class TerminalOutput extends Component {
     }
 
     handleCommand(cmd, isLastIndex) {
-        switch (cmd.toLowerCase()) {
+        switch (cmd.toLowerCase().trim()) {
             case "":
                 return <div></div>
             case "about":
