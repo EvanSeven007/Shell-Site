@@ -37,7 +37,7 @@ class Terminal extends Component {
             //render commands and handle in output, set commands in prompt
             <div>
                 <TerminalOutput commands = {this.state.commands} clearCommands= {this.clearCommands.bind(this)}/>
-                <Prompt setCommands_ = {this.wrapperSetCommmand.bind(this)}/>
+                <Prompt commands = {this.state.commands} setCommands_ = {this.wrapperSetCommmand.bind(this)}/>
                 <div ref = {this.messagesEndRef}></div>
             </div>
         );
