@@ -109,7 +109,7 @@ class TerminalOutput extends Component {
         }
     }
     render() {
-        //Only getting caleld once
+        //Only getting called once
         const outputList = this.props.commands.map((o, key) => 
         <div key = {key}>
             <span class = "guest">guest</span>
