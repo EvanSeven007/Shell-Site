@@ -101,7 +101,7 @@ class TerminalOutput extends Component {
                     openUrl("https://xkcd.com/838/");
                 }
                 return (
-                    <div class = "output-box">Permission Denied: This incident will be reported</div>
+                    <div class = "output-box">Permission Denied: This incident will be reported.</div>
                 )
             case "time":
                 return (
