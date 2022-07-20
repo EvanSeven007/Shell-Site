@@ -97,8 +97,11 @@ class TerminalOutput extends Component {
                     <p>Type 'help' to see a list of commands</p>
                 </div>
             case "sudo":
+                if (isLastIndex) {
+                    openUrl("https://xkcd.com/838/");
+                }
                 return (
-                    <div class = "output-box">Permission Denied: With great power comes great responsibility...</div>
+                    <div class = "output-box">Permission Denied: This incident will be reported</div>
                 )
             case "time":
                 return (
