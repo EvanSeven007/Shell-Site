@@ -46,3 +46,8 @@
 .email {
     color: rgb(152, 151, 26);
 }
+
+.start_banner {
+    font-family:monospace;
+    white-space: pre;
+}

@@ -92,8 +92,8 @@ class TerminalOutput extends Component {
                 };
                 return <div>Opening Resume...</div>;
             case "start":
-                return <div class = "start_banner">
-                    <p>{start_message}</p>
+                return <div>
+                    <div class = "start_banner">{start_message}</div>
                     <p>Type 'help' to see a list of commands</p>
                 </div>
             case "sudo":
