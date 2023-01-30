@@ -1,6 +1,6 @@
 import {useState} from "react";
 
-const commands = ["about", "email", "github", "help", "hello", "linkedin", "projects", "resume", "start", "time"];
+const commands = ["about", "email", "github", "help", "hello", "linkedin", "projects", "resume", "start", "time", "vim", "emacs"];
 const Prompt = (props) => {
     const [input, setInput] = useState("");
     const [currCmdIndex, setCurrCmdIndex] = useState(0);

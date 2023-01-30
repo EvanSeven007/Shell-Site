@@ -107,6 +107,14 @@ class TerminalOutput extends Component {
                 return (
                     <div class = "output-box">{this.getDate()}</div>
                 )
+            case "vim":
+                return (
+                    <div class = "output-box">Vim is not supported. Try emacs instead!</div>
+                )
+            case "emacs":
+                return (
+                    <div class = "output-box">Emacs is not supported. Try vim instead!</div>
+                )
             default:
                 return <div class = "output-box">{cmd} is not a valid command</div>
         }
