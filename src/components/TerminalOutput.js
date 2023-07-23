@@ -19,7 +19,7 @@ const start_message =
                                                                                                                                         
                                                                                                                                         
 const openUrl = async (url) => {
-    setTimeout(() => window.open(url, url), "2000");
+    setTimeout(() => window.open(url, url), "1000");
 };                                                                                                                                
 
 //const commands = ["about", "email", "github", "help", "hello", "linkedin", "projects", "resume", "start", "time"];
