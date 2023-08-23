@@ -36,6 +36,29 @@ class TerminalOutput extends Component {
     }
 
     handleCommand(cmd, isLastIndex) {
+        cmd.split(";")
+        switch(cmd.toLowerCase().split(" ")[0]) {
+            case "sudo":
+                if (isLastIndex) {
+                    openUrl("https://xkcd.com/838/");
+                }
+                return (
+                    <div class = "output-box">Permission Denied: This incident will be reported.</div>
+                )
+            case "vim":
+                return (
+                    <div class = "output-box">Vim is not supported. Try emacs instead!</div>
+                )
+            case "emacs":
+                return (
+                    <div class = "output-box">Emacs is not supported. Try vim instead!</div>
+                )
+            case "touch":
+                return (
+                    <div class = "output-box">touch: cannot touch file: Permission denied</div>
+                )
+        }
+
         switch (cmd.toLowerCase().trim()) {
             case "":
                 return <div></div>
@@ -49,7 +72,8 @@ class TerminalOutput extends Component {
                     <p>My current career goals includes learning as much as I can about tech, both as a future engineer and hobbyist.</p>
                     <p>In my free time, I enjoy climbing, powerlifting, reading, and listening to as much music as I can.</p>
                     <p>Feel free to connect with any of my contacts! (the 'help' command may prove useful!)</p>
-                </span>)
+                </span>
+                )
             case "clear":
                 this.props.clearCommands();
                 break
@@ -96,29 +120,15 @@ class TerminalOutput extends Component {
                     <div class = "start_banner">{start_message}</div>
                     <p>Type 'help' to see a list of commands</p>
                 </div>
-            case "sudo":
-                if (isLastIndex) {
-                    openUrl("https://xkcd.com/838/");
-                }
-                return (
-                    <div class = "output-box">Permission Denied: This incident will be reported.</div>
-                )
             case "time":
                 return (
                     <div class = "output-box">{this.getDate()}</div>
-                )
-            case "vim":
-                return (
-                    <div class = "output-box">Vim is not supported. Try emacs instead!</div>
-                )
-            case "emacs":
-                return (
-                    <div class = "output-box">Emacs is not supported. Try vim instead!</div>
                 )
             default:
                 return <div class = "output-box">{cmd} is not a valid command</div>
         }
     }
+
     render() {
         //Only getting called once
         const outputList = this.props.commands.map((o, key) => 
