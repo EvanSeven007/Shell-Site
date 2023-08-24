@@ -57,6 +57,8 @@ class TerminalOutput extends Component {
                 return (
                     <div class = "output-box">touch: cannot touch file: Permission denied</div>
                 )
+            default: 
+                    
         }
 
         switch (cmd.toLowerCase().trim()) {
