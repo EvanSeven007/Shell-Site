@@ -67,12 +67,8 @@ class TerminalOutput extends Component {
             case "about":
                 return (
                 <span class = "output-box">
-                    <p>First off, thank you for visiting my website, whoever you may be. Feel free to take a look around!</p>
-                    <p>Hi! My name is Evan Stegall and I am a Senior Computer Science Student at Rice University.</p>
-                    <p>I have been hooked on programming and problem solving ever since I took my first Python course in high school, and since then I have
-                        been in love with all things computer science.</p>
-                    <p>My current career goals includes learning as much as I can about tech, both as a future engineer and hobbyist.</p>
-                    <p>In my free time, I enjoy climbing, powerlifting, reading, and listening to as much music as I can.</p>
+                    <p>Hello! I'm Evan Stegall, a recent Rice University CS grad turned Software Engineer at Stripe.</p>
+                    <p>I have been hooked on programming ever since my first high school Python course, sparking an enjoyment for programming and tinkering that has driven my academic and professional pursuits ever since.</p>
                     <p>Feel free to connect with any of my contacts! (the 'help' command may prove useful!)</p>
                 </span>
                 )
