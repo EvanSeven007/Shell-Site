@@ -1,1 +1,1 @@
-Personal Website meant to emulate a linux shell. Built in React.
+Personal Website meant to emulate the aeshetics of a linux shell. 
