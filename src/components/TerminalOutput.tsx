@@ -1,5 +1,5 @@
 import React from "react";
-import {Component, JSXElementConstructor, ReactElement, ReactNode} from "react";
+import {Component} from "react";
 
 
 
@@ -81,14 +81,8 @@ class TerminalOutput extends Component<TerminalOutputProps> {
                 </span>
                 )
             case "clear":
-                interface TerminalOutputProps {
-                    clearCommands: () => void;
-                }
-
-                class TerminalOutput extends Component<TerminalOutputProps> {
-                    // ...
-                }
-                break
+                this.props.clearCommands();
+                break;
             case "email":
                 return (
                     <div className = "output-box"><a href="mailto: evanstegall123@gmail.com" target = "_blank" rel="noreferrer">evanstegall123@gmail.com</a></div>
