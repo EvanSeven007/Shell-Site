@@ -5,7 +5,7 @@ import Terminal from "./components/Terminal.js"
 class App extends Component {
     render() {
         return (
-            <div class = "website">
+            <div className = "website">
                 <Terminal/>
             </div>
         );

@@ -1,4 +1,12 @@
-import {Component} from "react";
+import React from "react";
+import {Component, JSXElementConstructor, ReactElement, ReactNode} from "react";
+
+
+
+interface TerminalOutputProps {
+    clearCommands: () => void;
+    commands: string[];
+}
 
 const start_message = 
 "███████╗██╗   ██╗ █████╗ ███╗   ██╗                       \n" + 
@@ -18,14 +26,14 @@ const start_message =
                                                                                                                                  
                                                                                                                                         
                                                                                                                                         
-const openUrl = async (url) => {
-    setTimeout(() => window.open(url, url), "1000");
+const openUrl = async (url: string) => {
+    setTimeout(() => window.open(url, url), 1000);
 };                                                                                                                                
 
 //const commands = ["about", "email", "github", "help", "hello", "linkedin", "projects", "resume", "start", "time"];
 
-class TerminalOutput extends Component {
-    constructor(props) {
+class TerminalOutput extends Component<TerminalOutputProps> {
+    constructor(props: TerminalOutputProps) {
         super(props);
         this.state = {results: []};
     }
@@ -35,7 +43,7 @@ class TerminalOutput extends Component {
         return d.toLocaleTimeString();
     }
 
-    handleCommand(cmd, isLastIndex) {
+    handleCommand(cmd: string, isLastIndex: boolean) {
         cmd.split(";")
         switch(cmd.toLowerCase().split(" ")[0]) {
             case "sudo":
@@ -43,19 +51,19 @@ class TerminalOutput extends Component {
                     openUrl("https://xkcd.com/838/");
                 }
                 return (
-                    <div class = "output-box">Permission Denied: This incident will be reported.</div>
+                    <div className = "output-box">Permission Denied: This incident will be reported.</div>
                 )
             case "vim":
                 return (
-                    <div class = "output-box">Vim is not supported. Try emacs instead!</div>
+                    <div className = "output-box">Vim is not supported. Try emacs instead!</div>
                 )
             case "emacs":
                 return (
-                    <div class = "output-box">Emacs is not supported. Try vim instead!</div>
+                    <div className = "output-box">Emacs is not supported. Try vim instead!</div>
                 )
             case "touch":
                 return (
-                    <div class = "output-box">touch: cannot touch file: Permission denied</div>
+                    <div className = "output-box">touch: cannot touch file: Permission denied</div>
                 )
             default: 
                     
@@ -66,7 +74,7 @@ class TerminalOutput extends Component {
                 return <div></div>
             case "about":
                 return (
-                <span class = "output-box">
+                <span className = "output-box">
                     <p>First off, thank you for visiting my website, whoever you may be. Feel free to take a look around!</p>
                     <p>Hi! My name is Evan Stegall and I am a Senior Computer Science Student at Rice University.</p>
                     <p>I have been hooked on programming and problem solving ever since I took my first Python course in high school, and since then I have
@@ -77,11 +85,17 @@ class TerminalOutput extends Component {
                 </span>
                 )
             case "clear":
-                this.props.clearCommands();
+                interface TerminalOutputProps {
+                    clearCommands: () => void;
+                }
+
+                class TerminalOutput extends Component<TerminalOutputProps> {
+                    // ...
+                }
                 break
             case "email":
                 return (
-                    <div class = "output-box"><a href="mailto: evanstegall123@gmail.com" target = "_blank" rel="noreferrer">evanstegall123@gmail.com</a></div>
+                    <div className = "output-box"><a href="mailto: evanstegall123@gmail.com" target = "_blank" rel="noreferrer">evanstegall123@gmail.com</a></div>
                 )
             case "github":
                 if (isLastIndex) {
@@ -90,15 +104,15 @@ class TerminalOutput extends Component {
                 return <div>Opening Github...</div>
             case "help":
                 return (
-                    <div class = "output-box">
+                    <div className = "output-box">
                         <p>Available Commands:</p>
                         <p>about, email, github, help, hello, linkedin, projects, resume, start, time</p>
                     </div>
                 )
             case "hi":
-                return <div class = "output-box">Hello!</div>
+                return <div className = "output-box">Hello!</div>
             case "hello":
-                return <div class = "output-box">Hi!</div>
+                return <div className = "output-box">Hi!</div>
             case "linkedin":
                 if (isLastIndex) {
                     openUrl("https://www.linkedin.com/in/evan-stegall/");
@@ -106,7 +120,7 @@ class TerminalOutput extends Component {
                 return <div>Opening Linkedin...</div>
             case "projects":
                 return (
-                    <div class = "output-box">
+                    <div className = "output-box">
                         <p><a href = "https://github.com/EvanSeven007/ReeseBot">Reese Bot</a> - A playable chess engine built in Rust using the minimax algorithm with alpha-beta pruning</p>
                         <p><a href = "https://devpost.com/software/hfh-data-boys">The Missing Link</a> - Worked on a team of four to create a link prediction program for a given social network, winning 2nd best undergraduate team overall.</p>
                         <p> - Used pandas for data processing and tensorflow for data analysis, we implemented and trained a random-forest classifier, eventually getting around 70.4% precision despite having a highly sparse training graph.</p>
@@ -119,27 +133,26 @@ class TerminalOutput extends Component {
                 return <div>Opening Resume...</div>;
             case "start":
                 return <div>
-                    <div class = "start_banner">{start_message}</div>
+                    <div className = "start_banner">{start_message}</div>
                     <p>Type 'help' to see a list of commands</p>
                 </div>
             case "time":
                 return (
-                    <div class = "output-box">{this.getDate()}</div>
+                    <div className = "output-box">{this.getDate()}</div>
                 )
             default:
-                return <div class = "output-box">{cmd} is not a valid command</div>
+                return <div className = "output-box">{cmd} is not a valid command</div>
         }
     }
 
     render() {
-        //Only getting called once
         const outputList = this.props.commands.map((o, key) => 
         <div key = {key}>
-            <span class = "guest">guest</span>
-            <span class = "prompt-stuff">@</span>
-            <span class = "email">evanstegall.com</span>
-            <span class = "prompt-stuff">$ ~ </span>
-            <span class = "output-area">{o}{this.handleCommand(o, key === this.props.commands.length - 1)}</span>
+            <span className = "guest">guest</span>
+            <span className = "prompt-stuff">@</span>
+            <span className = "email">evanstegall.com</span>
+            <span className = "prompt-stuff">$ ~ </span>
+            <span className = "output-area">{o}{this.handleCommand(o, key === this.props.commands.length - 1)}</span>
         </div>);
         return (
             <>{outputList}</>
