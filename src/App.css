@@ -5,6 +5,7 @@
     background-color: #1d2021;
     color: #ebdbb2;
     font-size: 13px;
+    line-height: 1.5;
 }
 
 .website p {
@@ -14,9 +15,10 @@
 }
 
 .input-box {
-    border: none;
     background-color: transparent;
     outline: none;
+    border: none;
+    height: 1em;
 }
 
 .output-area {
@@ -41,6 +43,11 @@
 
 .prompt-stuff {
     color: rgb(168, 153, 132);
+}
+
+.output-prompt-stuff {
+    color: rgb(168, 153, 132);
+    padding-right: 2px;
 }
 
 .email {

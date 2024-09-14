@@ -30,8 +30,6 @@ const openUrl = async (url: string) => {
     setTimeout(() => window.open(url, url), 1000);
 };                                                                                                                                
 
-//const commands = ["about", "email", "github", "help", "hello", "linkedin", "projects", "resume", "start", "time"];
-
 class TerminalOutput extends Component<TerminalOutputProps> {
     constructor(props: TerminalOutputProps) {
         super(props);
@@ -137,12 +135,15 @@ class TerminalOutput extends Component<TerminalOutputProps> {
 
     render() {
         const outputList = this.props.commands.map((o, key) => 
-        <div key = {key}>
+        <div key = {key} className = "terminal-prompt">
             <span className = "guest">guest</span>
             <span className = "prompt-stuff">@</span>
             <span className = "email">evanstegall.com</span>
-            <span className = "prompt-stuff">$ ~ </span>
-            <span className = "output-area">{o}{this.handleCommand(o, key === this.props.commands.length - 1)}</span>
+            <span className = "output-prompt-stuff">$ ~ </span>
+            <span className = "output-area">
+                <span className = "output-command">{o}</span>
+                {this.handleCommand(o, key === this.props.commands.length - 1)}
+            </span>
         </div>);
         return (
             <>{outputList}</>
