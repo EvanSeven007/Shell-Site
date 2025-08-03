@@ -1,4 +1,4 @@
-import {useState} from "react";
+import React, {useState, useRef, useEffect} from "react";
 
 type Props = {
     setCommands_: (arg0: string) => void;
@@ -10,6 +10,17 @@ const commands = ["about", "email", "github", "help", "hello", "linkedin", "proj
 const Prompt = (props: Props) => {
     const [input, setInput] = useState("");
     const [currCmdIndex, setCurrCmdIndex] = useState(0);
+    // Ref used for auto-focusing the input box
+    const inputRef = useRef<HTMLInputElement>(null);
+
+    // Focus on moount
+    useEffect(() => {
+        inputRef.current?.focus();
+    }, []);
+
+    const handleBlur = () => {
+        inputRef.current?.focus();
+    };
 
     const handleInput = (event: React.ChangeEvent<HTMLInputElement>) => {
         setInput(event.target.value);
@@ -63,7 +74,7 @@ const Prompt = (props: Props) => {
             <span className = "prompt-stuff">@</span>
             <span className = "email">evanstegall.com</span>
             <span className = "prompt-stuff">$ ~ </span>
-            <input type="text" className = "input-box" value={input} onChange={handleInput} onKeyDown={handleKey} autoFocus/>
+            <input ref={inputRef} type="text" className = "input-box" value={input} onChange={handleInput} onKeyDown={handleKey} autoFocus onBlur={handleBlur}/>
         </div>
     );
 }

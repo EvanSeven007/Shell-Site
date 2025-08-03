@@ -42,6 +42,7 @@ class TerminalOutput extends Component<TerminalOutputProps> {
     }
 
     handleCommand(cmd: string, isLastIndex: boolean) {
+        cmd = cmd.startsWith("./") ? cmd.slice(2) : cmd;
         cmd.split(";")
         switch(cmd.toLowerCase().split(" ")[0]) {
             case "sudo":
@@ -73,8 +74,8 @@ class TerminalOutput extends Component<TerminalOutputProps> {
             case "about":
                 return (
                 <span className = "output-box">
-                    <p>Hello! I'm Evan Stegall, a recent Rice University CS grad turned Software Engineer at Stripe.</p>
-                    <p>I have been hooked on programming ever since my first high school Python course, sparking an enjoyment for programming and tinkering that has driven my academic and professional pursuits ever since.</p>
+                    <p>Hello! I'm Evan Stegall, a Rice University CS graduate and current Software Engineer at Stripe.</p>
+                    <p>I mostly work in the full-stack space, focusing on internal tooling to help Stripe's operational needs.</p>
                     <p>Feel free to connect with any of my contacts! (the 'help' command may prove useful!)</p>
                 </span>
                 )
@@ -128,6 +129,31 @@ class TerminalOutput extends Component<TerminalOutputProps> {
                 return (
                     <div className = "output-box">{this.getDate()}</div>
                 )
+            case "ls":
+                return (
+                    <div className = "output-box">
+                    <p>about*     email*     github*    help*      hello*     linkedin*</p>
+                    <p>projects*  resume*    start*     time*      ls*        pwd*</p>
+                    <p>cowsay*</p>
+                </div>
+                )
+            case "cowsay":
+                return (
+                    <div className = "output-box">
+                        <p> _________________</p>
+                        <p>&lt; Moo! I'm a cow! &gt;</p>
+                        <p> -----------------</p>
+                        <p>        \   ^__^</p>
+                        <p>         \  (oo)\_______</p>
+                        <p>            (__)\       )\/\</p>
+                        <p>                ||----w |</p>
+                        <p>                ||     ||</p>
+                    </div>
+                )
+            case "whoami":
+                return <div className = "output-box">guest</div>
+            case "pwd":
+                return <div className = "output-box">/Users/guest</div>
             default:
                 return <div className = "output-box">{cmd} is not a valid command</div>
         }
